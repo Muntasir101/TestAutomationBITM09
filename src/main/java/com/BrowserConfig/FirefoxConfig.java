@@ -1,32 +1,26 @@
 package com.BrowserConfig;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class FirefoxConfig {
     public static WebDriver driver;
 
     public static void main(String[] args) {
-//        FirefoxConfig obj=new FirefoxConfig(); //Create Object
-//        obj.testMethod1();
-//        testMethod2();
-
         launch_Firefox();
+       // close_Firefox();
+        quit_Firefox();
     }
     public static void launch_Firefox(){
         System.setProperty("webdriver.gecko.driver","./src/main/resources/geckodriver.exe");
         driver=new FirefoxDriver();
+        driver.manage().window().maximize();
     }
-    private void testMethod1(){
-        int a=5;
-        int b=5;
-        int sum=a+b;
-        System.out.println("Result: "+sum);
+    public static void close_Firefox(){
+        driver.close();  //Close only one Active Tab
     }
-    private static void testMethod2(){
-        int a=10;
-        int b=5;
-        int sub=a-b;
-        System.out.println("Result: "+sub);
+    public static void quit_Firefox(){
+        driver.quit();  //Close full Browser
     }
 }
