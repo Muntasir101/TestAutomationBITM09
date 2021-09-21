@@ -5,11 +5,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+
 public class LoginTest {
 
     public static WebDriver driver;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         launch_Chrome();
         open_LoginPage();
         TC_Login_001();
@@ -31,7 +36,8 @@ public class LoginTest {
     }
 
     //Email and pass valid
-    public static void TC_Login_001(){
+    public static void TC_Login_001() throws IOException {
+
         /*
         Step 3, 4 and 5
          */
@@ -39,12 +45,12 @@ public class LoginTest {
         //Step 3
         WebElement Email=driver.findElement(By.id("input-email"));
         Email.clear();
-        Email.sendKeys("user101@gmail.com");
+        Email.sendKeys("Email");
 
         //Step 4
         WebElement Password=driver.findElement(By.id("input-password"));
         Password.clear();
-        Password.sendKeys("123456");
+        Password.sendKeys("Password");
 
         //Step 5
         WebElement LoginBtn=driver.findElement(By.cssSelector("#content > div > div:nth-child(2) > div > form > input"));
@@ -170,6 +176,9 @@ public class LoginTest {
 
         System.out.println("TC_Login_004 Executed");
     }
+
+
+
 
     //step 6
     public static void close_Chrome(){

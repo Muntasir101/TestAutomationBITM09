@@ -91,10 +91,11 @@ public class TestBase {
         driver.manage().timeouts().implicitlyWait(Seconds, TimeUnit.SECONDS);
     }
 
-    public String getPageTitle(){
-        return driver.getTitle();
+    public static void getPageTitle(){
+        String Title=driver.getTitle();
+        System.out.println("Title:" +Title);
     }
-    public String getPageURL(){
+    public static String getPageURL(){
         return driver.getCurrentUrl();
     }
 }

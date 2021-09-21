@@ -4,8 +4,10 @@ import com.Opencart.LoginTest;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
+import java.io.IOException;
+
 public class Headless extends LoginTest {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         System.setProperty("webdriver.gecko.driver","./src/main/resources/geckodriver.exe");
         FirefoxOptions obj=new FirefoxOptions();
         obj.setHeadless(true);
@@ -21,6 +23,7 @@ public class Headless extends LoginTest {
     }
 }
 
+
 /*
 Account Successfully Login.Test Case Passed.
 TC_Login_001 Executed
@@ -30,4 +33,5 @@ Test Case Passed.
 TC_Login_003 Executed
 Test Case Passed.
 TC_Login_004 Executed
+
  */
