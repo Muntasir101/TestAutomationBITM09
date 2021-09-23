@@ -1,6 +1,8 @@
 package com.Base;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import java.util.concurrent.TimeUnit;
@@ -98,5 +100,55 @@ public class TestBase {
     public static String getPageURL(){
         return driver.getCurrentUrl();
     }
+
+    //Common Methods
+    //Click
+    public static void clickOnElementByID(String locator){
+        driver.findElement(By.id(locator)).click();
+    }
+    public static void clickOnElementByNAME(String locator){
+        driver.findElement(By.name(locator)).click();
+    }
+    public static void clickOnElementByCSS(String locator){
+        driver.findElement(By.cssSelector(locator)).click();
+    }
+    public static void clickOnElementByXPATH(String locator){
+        driver.findElement(By.xpath(locator)).click();
+    }
+    public static void clickOnElementByLinkText(String locator){
+        driver.findElement(By.linkText(locator)).click();
+    }
+
+    //Type (SendKeys)
+    public static void typeOnElementByID(String locator,String value){
+        driver.findElement(By.id(locator)).sendKeys(value);
+    }
+    public static void typeOnElementByNAME(String locator,String value){
+        driver.findElement(By.name(locator)).sendKeys(value);
+    }
+    public static void typeOnElementByCSS(String locator,String value){
+        driver.findElement(By.cssSelector(locator)).sendKeys(value);
+    }
+    public static void typeOnElementByXPATH(String locator,String value){
+        driver.findElement(By.xpath(locator)).sendKeys(value);
+    }
+    //Clear
+    public static void clearElementByID(String locator){
+        driver.findElement(By.id(locator)).clear();
+    }
+    public static void clearElementByNAME(String locator){
+        driver.findElement(By.name(locator)).clear();
+    }
+    public static void clearElementByCSS(String locator){
+        driver.findElement(By.cssSelector(locator)).clear();
+    }
+    public static void clearElementByXPATH(String locator){
+        driver.findElement(By.xpath(locator)).clear();
+    }
+
+    public static void switchToIFrame(String locator){
+        driver.switchTo().frame(locator);
+    }
+
 }
 
