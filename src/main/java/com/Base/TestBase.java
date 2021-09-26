@@ -1,10 +1,16 @@
 package com.Base;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import ru.yandex.qatools.ashot.AShot;
+import ru.yandex.qatools.ashot.Screenshot;
+import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
+
+import javax.imageio.ImageIO;
+import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 /*
@@ -146,9 +152,41 @@ public class TestBase {
         driver.findElement(By.xpath(locator)).clear();
     }
 
+    //Frame
     public static void switchToIFrame(String locator){
         driver.switchTo().frame(locator);
     }
 
+    //Screenshots
+    public static void currentWindow_Screenshot(String ImageName,String Format) {
+        //Screenshot Capture
+        File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        //Store Image
+        try {
+            FileUtils.copyFile(screenshotFile,new File("./src/main/ScreenshotFiles/"+ImageName+Format),true);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void webElement_Screenshot(String ImageName,String Format) {
+        WebElement searchBox = driver.findElement(By.name("search"));
+        //Screenshot Capture
+        File screenshotFile = ((TakesScreenshot) searchBox).getScreenshotAs(OutputType.FILE);
+        //Store Image
+        try {
+            FileUtils.copyFile(screenshotFile, new File("./src/main/ScreenshotFiles/"+ImageName+Format), true);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void entirePage_Screenshot(String ImageName){
+        Screenshot entirePage=new AShot().shootingStrategy(ShootingStrategies.viewportPasting(1000)).takeScreenshot(driver);
+        try {
+            ImageIO.write(entirePage.getImage(),"PNG",new File("./src/main/ScreenshotFiles/"+ImageName+"png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 }
 
