@@ -15,6 +15,7 @@
         <CommonsIO-Version>2.11.0</CommonsIO-Version>
         <Ashot-Version>1.5.4</Ashot-Version>
         <iTextpdf-Version>5.5.13.2</iTextpdf-Version>
+        <TestNG-Version>7.4.0</TestNG-Version>
     </properties>
 
 
@@ -45,6 +46,13 @@
             <groupId>com.itextpdf</groupId>
             <artifactId>itextpdf</artifactId>
             <version>${iTextpdf-Version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${TestNG-Version}</version>
+            <scope>test</scope>
         </dependency>
 
 
