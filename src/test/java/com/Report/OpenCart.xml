@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Open Cart Login">
+
+  <test name="Login Test Valid">
+      <classes>
+          <class name="com.Report.LoginTestValid"> </class>
+          <class name="com.Report.LoginTestInvalid"> </class>
+      </classes>
+  </test>
+
+  </suite>

@@ -1,0 +1,33 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Open Cart Login">
+
+  <test name="Login Test Valid Chrome">
+      <parameter name="Browser" value="chrome"> </parameter>
+      <classes>
+          <class name="com.CrossBrowser.CB_LoginTest"> </class>
+      </classes>
+  </test>
+
+    <test name="Login Test Valid Firefox">
+        <parameter name="Browser" value="firefox"> </parameter>
+        <classes>
+            <class name="com.CrossBrowser.CB_LoginTest"> </class>
+        </classes>
+    </test>
+
+    <test name="Login Test InValid Firefox">
+        <parameter name="Browser" value="firefox"> </parameter>
+        <classes>
+            <class name="com.CrossBrowser.CB_LoginTest2"> </class>
+        </classes>
+    </test>
+
+    <test name="Login Test InValid Chrome">
+        <parameter name="Browser" value="chrome"> </parameter>
+        <classes>
+            <class name="com.CrossBrowser.CB_LoginTest2"> </class>
+        </classes>
+    </test>
+
+  </suite>
