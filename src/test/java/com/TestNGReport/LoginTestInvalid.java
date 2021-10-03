@@ -1,4 +1,4 @@
-package com.Report;
+package com.TestNGReport;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
